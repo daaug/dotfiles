@@ -1,2 +1,16 @@
 # For theemes
 https://mayccoll.github.io/Gogh/
+
+# Configuring lenovo t440p keyboard
+No Ubuntu 16.04 (Xenial Xerus)
+Procedimento:
+
+    sudo dpkg-reconfigure keyboard-configuration
+
+Utilize as seguintes opções:
+Modelo do teclado: IBM ThinkPad R60/R61/T61
+País de origem para o teclado: Portuguese (Brazil)
+Layout do teclado: Portuguese (Brazil)
+Tecla para funcionar como AltGr: O padrão para o layout de teclado
+Tecla Compose: Sem tecla compose
+Usar Control+Alt+Backspace para terminar o servidor X?: <não>
