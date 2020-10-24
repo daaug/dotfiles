@@ -1,118 +1,133 @@
 "" Repo :
 "" https://github.com/daaug/dev-configs
+
+"""""""""""""""""""""""""""""""
+
 call plug#begin('~/.config/nvim/plugged')
-Plug 'gkjgh/cobalt', { 'dir': '~/.config/nvim/colors' }
-Plug 'scrooloose/nerdtree'
-Plug 'Xuyuanp/nerdtree-git-plugin'
-"Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'jiangmiao/auto-pairs'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'ryanoasis/vim-devicons'
-Plug 'itchyny/lightline.vim'
-Plug 'airblade/vim-gitgutter'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
-Plug 'junegunn/fzf.vim'
-Plug 'mattn/emmet-vim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'deoplete-plugins/deoplete-jedi'
-Plug 'davidhalter/jedi'
-Plug 'ervandew/supertab'
+
+  "Plug 'Xuyuanp/nerdtree-git-plugin'
+  "Plug 'ervandew/supertab'
+  "Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  "Plug 'scrooloose/nerdtree'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'davidhalter/jedi'
+  Plug 'gkjgh/cobalt', { 'dir': '~/.config/nvim/colors' }
+  Plug 'itchyny/lightline.vim'
+  Plug 'jiangmiao/auto-pairs'
+  Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --bin' }
+  Plug 'junegunn/fzf.vim'
+  Plug 'mattn/emmet-vim'
+  Plug 'ryanoasis/vim-devicons'
+  Plug 'tpope/vim-surround'
+
 call plug#end()
 
-" Basic setup
-set nocompatible
-set laststatus=2
+"""""""""""""""""""""""""""""""
 
-" Use deoplete.
-let g:deoplete#enable_at_startup = 1
+""" VIM COMMANDS
+  " enable syntax and plugins
+  filetype plugin on
 
-" enable syntax and plugins
-filetype plugin on
+  " open number and relnumber when vim start up
+  set nu
+  set rnu
 
-" supertab config
-let g:SuperTabDefaultCompletionType = "<c-n>"
+  " open number and relnumber when vim start up
+  set nu
+  set rnu
 
-" open number and relnumber when vim start up
-set nu
-set rnu
+  " highlight line
+  set cursorline
+  hi CursorLine term=bold cterm=bold guibg=Grey40
 
-" number and relative number lines
-map <F7> :set nu!<CR>
-map <f8> :set rnu!<CR>
+  " Set theme
+  color cobalt
+  set bg=dark
+  set t_Co=256
 
-" highlight line
-set cursorline
-hi CursorLine term=bold cterm=bold guibg=Grey40
+  " Text config
+  set nowrap
+  set completeopt-=preview
+  set autoindent
 
-" Set theme
-color cobalt
-set bg=dark
-set t_Co=256
+  " Tabs as spaces
+  set tabstop=2 shiftwidth=2 expandtab
 
-" Misc
-set nowrap
-set completeopt-=preview
-set autoindent
 
-" Mapleader
-nnoremap <SPACE> <Nop>
-let mapleader=" "
-nnoremap <leader>w :w<CR>
+  "" VIM SHORTCUTS
+    " By default <leader> = \
+    " File control
+    nnoremap <leader>e :e 
+    nnoremap <leader>q :q<cr>
+    nnoremap <leader>w :w<cr>
 
-" NerdTree Open/Close
-map <c-\> :NERDTreeToggle<CR>
-let NERDTreeShowHidden=1
+    " number and relative number lines
+    map <F7> :set nu!<CR>
+    map <f8> :set rnu!<CR>
 
-" Tabs as spaces
-set tabstop=2 shiftwidth=2 expandtab
+    " Buffer control
+    nnoremap <leader>ls :ls<cr>:b
+    nnoremap <F6> :bn<cr>
+    nnoremap <F5> :bp<cr>
+    nnoremap <leader>bd :bd<cr>
 
-" Split vertical/horizontal and close
-nnoremap <silent> vv <C-w>v<c-w>l
-nnoremap <silent> vs <C-w>S<c-w>j
+    " Split vertical/horizontal and close
+    nnoremap <silent> vv <C-w>v<c-w>l
+    nnoremap <silent> vs <C-w>S<c-w>j
 
-" Move between splits
-nnoremap <c-h> <c-w>h
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-l> <c-w>l
-nnoremap j gj
-nnoremap k gk
+    " Splits navigation
+    nnoremap <c-h> <c-w>h
+    nnoremap <c-j> <c-w>j
+    nnoremap <c-k> <c-w>k
+    nnoremap <c-l> <c-w>l
+    nnoremap j gj
+    nnoremap k gk
 
-" Other shortcuts
-nnoremap <leader>w :w<cr>b
-nnoremap <leader>wq :wq<cr>
-nnoremap <leader>qq :q!<cr>
-nnoremap <leader>y Yp
-nnoremap <leader>' :terminal<cr>
-nnoremap <leader>ls :ls<cr>:b
-nnoremap <F6> :bn<cr>
-nnoremap <F5> :bp<cr>
-nnoremap <leader>bd :bd<cr>
-nnoremap <F2> :tabnew<cr>
-nnoremap <F4> :tabnext<cr>
-nnoremap <F3> :tabprevious<cr>
-nnoremap <leader>e :e 
-nnoremap <leader><leader> :
-nnoremap <s-h> :%s/
-nnoremap <c-p> :Files<cr> 
-nnoremap <c-f> :Ag 
+    " Splits size
+    nnoremap <leader>= :res +2<cr>
+    nnoremap <leader>- :res -2<cr>
+    nnoremap = :vertical res +10<cr>
+    nnoremap - :vertical res -10<cr>
 
-" Resize panes
-nnoremap <leader>= :res +2<cr>
-nnoremap <leader>- :res -2<cr>
-nnoremap = :vertical res +10<cr>
-nnoremap - :vertical res -10<cr>
+    " Tabs control
+    nnoremap <F2> :tabnew<cr>
+    nnoremap <F4> :tabnext<cr>
+    nnoremap <F3> :tabprevious<cr>
 
-" gitgutter
-set updatetime=100
+  "" END VIM SHORTCUTS
+""" END VIM COMMANDS
 
-" syntax set
-au BufReadPost *.twig set syntax=php
+"""""""""""""""""""""""""""""""
 
-"folding
-set foldmethod=indent   
-set foldnestmax=10
-set nofoldenable
-set foldlevel=2
-autocmd BufRead,BufNewFile *.css,*.scss,*.less setlocal foldmethod=marker foldmarker={,}
+""" FZF COMMANDS
+  "" BEGIN SHORTCUTS
+
+    " FZF call
+    nnoremap <c-f> :FZF<CR> 
+
+  "" END SHORTCUTS
+""" END FZF COMMANDS
+
+"""""""""""""""""""""""""""""""
+
+""" SUPERTAB COMMANDS
+  "" BEGIN SHORTCUTS
+
+    " Creat supertab call
+    "let g:SuperTabDefaultCompletionType = "<c-n>"
+
+  "" END SHORTCUTS
+""" END SUPERTAB COMMANDS
+
+"""""""""""""""""""""""""""""""
+
+""" GITGUTTER COMMANDS
+  "" BEGIN SHORTCUTS
+
+    " Git control in ms
+    set updatetime=100
+
+  "" END SHORTCUTS
+""" END GITGUTTER COMMANDS
+
+"""""""""""""""""""""""""""""""
