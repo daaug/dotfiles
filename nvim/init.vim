@@ -3,14 +3,26 @@
 
 """""""""""""""""""""""""""""""
 
+""" VIM-POLYGLOT TROUBLESHOOTING
+"let g:polyglot_disabled = ['markdown']
+" If autoindent not work:
+" let g:polyglot_disabled = ['autoindent']
+set nocompatible
+
+""" END VIM-POLYGLOT TROUBLESHOOTING
+
+
 call plug#begin('~/.config/nvim/plugged')
 
   "Plug 'Xuyuanp/nerdtree-git-plugin'
+  "Plug 'davidhalter/jedi'
+  "Plug 'davidhalter/jedi-vim'
   "Plug 'ervandew/supertab'
   "Plug 'neoclide/coc.nvim', {'branch': 'release'}
   "Plug 'scrooloose/nerdtree'
+  "Plug 'sheerun/vim-polyglot'
   Plug 'airblade/vim-gitgutter'
-  Plug 'davidhalter/jedi'
+  Plug 'deoplete-plugins/deoplete-jedi'
   Plug 'gkjgh/cobalt', { 'dir': '~/.config/nvim/colors' }
   Plug 'itchyny/lightline.vim'
   Plug 'jiangmiao/auto-pairs'
@@ -18,7 +30,9 @@ call plug#begin('~/.config/nvim/plugged')
   Plug 'junegunn/fzf.vim'
   Plug 'mattn/emmet-vim'
   Plug 'ryanoasis/vim-devicons'
+  Plug 'shougo/deoplete.nvim'
   Plug 'tpope/vim-surround'
+  Plug 'zchee/deoplete-clang'
 
 call plug#end()
 
@@ -56,6 +70,9 @@ call plug#end()
 
   "" VIM SHORTCUTS
     " By default <leader> = \
+    let mapleader = "\<Space>"
+    nnoremap <leader><leader> :
+    
     " File control
     nnoremap <leader>e :e 
     nnoremap <leader>q :q<cr>
@@ -129,5 +146,15 @@ call plug#end()
 
   "" END SHORTCUTS
 """ END GITGUTTER COMMANDS
+
+"""""""""""""""""""""""""""""""
+
+""" DEOPLETE COMMANDS
+  let g:deoplete#enable_at_startup = 1
+  let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-10/lib/libclang.so.1'
+
+  "" BEGIN SHORTCUTS
+  "" END SHORTCUTS
+""" END DEOPLETE COMMANDS
 
 """""""""""""""""""""""""""""""
