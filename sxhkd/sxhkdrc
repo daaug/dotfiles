@@ -4,11 +4,11 @@
 
 # terminal emulator
 super + Return
-  st
+  alacritty
 
 # program launcher
 super + d
-  rofi -theme .config/rofi/slate.rasi -show run
+  rofi -show run -theme slate
 
 super + shift +  d
   dmenu_run
@@ -134,3 +134,7 @@ super + {Left,Down,Up,Right}
 #
 # PERSONAL
 #
+
+# find cursor
+super + ctrl + p
+  xfce4-find-cursor
