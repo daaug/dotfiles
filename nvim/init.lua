@@ -30,11 +30,11 @@ require("paq")({
   "savq/paq-nvim"; -- Let Paq manage itself
 
   -- LSP
-  --{ "williamboman/mason.nvim", build = ":MasonUpdate" };
-  --"williamboman/mason-lspconfig.nvim";
+  { "williamboman/mason.nvim", build = ":MasonUpdate" };
+  "williamboman/mason-lspconfig.nvim";
   "neovim/nvim-lspconfig";
-  --"hrsh7th/cmp-nvim-lsp";
-  --"hrsh7th/nvim-cmp";
+  "hrsh7th/cmp-nvim-lsp";
+  "hrsh7th/nvim-cmp";
 
   -- Buffer Goodies
   {"nvim-treesitter/nvim-treesitter", build = ":TSUpdateSync"};
@@ -78,8 +78,8 @@ require'nvim-treesitter.configs'.setup {
 }
 require("plenary")
 require("telescope").setup()
---require("mason").setup()
---require("mason-lspconfig").setup()
+require("mason").setup()
+require("mason-lspconfig").setup()
 require("lspconfig-cfg")
---require("nvim-cmp-cfg")
---require("cmp_nvim_lsp-cfg")
+require("nvim-cmp-cfg")
+require("cmp_nvim_lsp-cfg")
