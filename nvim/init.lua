@@ -1,6 +1,6 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
---vim.o.mouse = false
+vim.o.mouse = ""
 vim.o.rnu = true
 vim.o.nu = true
 vim.o.hidden = true
@@ -12,6 +12,7 @@ vim.o.expandtab = true
 vim.o.shiftwidth = 2
 vim.o.softtabstop = 2
 vim.o.autoindent = true
+vim.opt.termguicolors = true
 
 -- Theme
 vim.cmd([[colorscheme ir_black]])
@@ -47,7 +48,7 @@ require("paq")({
   "L3MON4D3/LuaSnip";
 
   -- File Management
-  --"nvim-tree/nvim-tree.lua";
+  "nvim-tree/nvim-tree.lua";
   "nvim-lua/plenary.nvim";
   "nvim-telescope/telescope.nvim";
 
@@ -60,18 +61,59 @@ require("paq")({
 -- First Priority
 require("keymaps")
 require('lualine-cfg')
---require("nvim-tree-cfg")
+require("nvim-tree").setup({
+  sort = {
+    sorter = "case_sensitive",
+  },
+  view = {
+    width = 30,
+  },
+  filters = {
+    dotfiles = true,
+  },
+  sort_by = "case_sensitive",
+  renderer = {
+    group_empty = true,
+    icons = {
+      git_placement = "after",
+      show = {
+        folder_arrow = true,
+      },
+      glyphs = {
+        default = "-",
+        symlink = "y",
+        folder = {
+          arrow_closed = ">",
+          arrow_open = "v",
+          default = " ",
+          open = "v",
+          empty = "z",
+          empty_open = "Z",
+          symlink = "y",
+          symlink_open = "Y",
+        },
+        git = {
+          unstaged = "uns",
+          staged = "sta",
+          unmerged = "unm",
+          renamed = "ren",
+          untracked = "unt",
+          deleted = "del",
+          ignored = "ign",
+        },
+      },
+    },
+  },
+})
 
 -- Second Priority
 require'nvim-treesitter.configs'.setup {
   ensure_installed = { "go", "lua", "vim", "vimdoc", "dart", "javascript", "scss", "css" },
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = true,
-
   -- Automatically install missing parsers when entering buffer
   -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
   auto_install = false,
-
   highlight = {
     enable = true,
   },
