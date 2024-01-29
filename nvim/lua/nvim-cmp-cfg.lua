@@ -31,11 +31,32 @@ cmp.setup({
 })
 
 -- Set up lspconfig.
--- already using on cmp_nvim_lsp-cfg
 --local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 --require('lspconfig')['<YOUR_LSP_SERVER>'].setup {
 --  capabilities = capabilities
 --}
 
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+require'lspconfig'.ast_grep.setup {
+  capabilities = capabilities,
+}
+require'lspconfig'.emmet_ls.setup {
+  capabilities = capabilities,
+}
+require'lspconfig'.clangd.setup {
+  capabilities = capabilities,
+}
+require'lspconfig'.dartls.setup {
+  capabilities = capabilities,
+}
+require'lspconfig'.gopls.setup {
+  capabilities = capabilities,
+}
+require'lspconfig'.lua_ls.setup {
+  capabilities = capabilities,
+}
+require'lspconfig'.tsserver.setup {
+  capabilities = capabilities,
+}

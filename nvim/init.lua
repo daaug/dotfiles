@@ -13,6 +13,7 @@ vim.o.shiftwidth = 2
 vim.o.softtabstop = 2
 vim.o.autoindent = true
 vim.opt.termguicolors = true
+vim.cmd([[filetype on]])
 
 -- Theme
 vim.cmd([[colorscheme ir_black]])
@@ -108,12 +109,12 @@ require("nvim-tree").setup({
 
 -- Second Priority
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "go", "lua", "vim", "vimdoc", "dart", "javascript", "scss", "css" },
+  --ensure_installed = { "go", "lua", "vim", "vimdoc", "dart", "javascript", "scss", "css" },
   -- Install parsers synchronously (only applied to `ensure_installed`)
-  sync_install = true,
+  --sync_install = true,
   -- Automatically install missing parsers when entering buffer
   -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-  auto_install = false,
+  auto_install = true,
   highlight = {
     enable = true,
   },
@@ -124,4 +125,3 @@ require("mason").setup()
 require("mason-lspconfig").setup()
 require("lspconfig-cfg")
 require("nvim-cmp-cfg")
-require("cmp_nvim_lsp-cfg")
