@@ -14,9 +14,8 @@ vim.o.softtabstop = 2
 vim.o.autoindent = true
 vim.opt.termguicolors = true
 vim.cmd([[filetype on]])
-
 -- Theme
-vim.cmd([[colorscheme ir_black]])
+vim.cmd([[colorscheme sunbather]])
 
 -- Download paq
 paq_path = "~/.local/share/nvim/site/pack/paqs"
