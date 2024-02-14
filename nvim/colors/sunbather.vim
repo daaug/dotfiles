@@ -75,6 +75,8 @@ else
   let s:yellow          = s:dark_yellow
 endif
 
+let s:currAccent = s:red
+
 " https://github.com/noahfrederick/vim-hemisu/
 function! s:h(group, style)
   execute "highlight" a:group
@@ -94,10 +96,10 @@ if &background != s:background
    execute "set background=" . s:background
 endif
 
-call s:h("Cursor",        {"bg": s:red, "fg": s:norm })
+call s:h("Cursor",        {"bg": s:currAccent, "fg": s:norm})
 call s:h("Comment",       {"fg": s:bg_subtle, "gui": "italic"})
 
-call s:h("Constant",      {"fg": s:red})
+call s:h("Constant",      {"fg": s:currAccent})
 hi! link Character        Constant
 hi! link Number           Constant
 hi! link Boolean          Constant
@@ -137,19 +139,19 @@ hi! link Debug            Special
 
 call s:h("Underlined",    {"fg": s:norm, "gui": "underline", "cterm": "underline"})
 call s:h("Ignore",        {"fg": s:bg})
-call s:h("Error",         {"fg": s:actual_white, "bg": s:red, "cterm": "bold"})
-call s:h("Todo",          {"fg": s:red, "gui": "underline", "cterm": "underline"})
+call s:h("Error",         {"fg": s:actual_white, "bg": s:currAccent, "cterm": "bold"})
+call s:h("Todo",          {"fg": s:currAccent, "gui": "underline", "cterm": "underline"})
 call s:h("SpecialKey",    {"fg": s:light_green})
 call s:h("NonText",       {"fg": s:medium_gray})
 call s:h("Directory",     {"fg": s:dark_blue})
-call s:h("ErrorMsg",      {"fg": s:red})
+call s:h("ErrorMsg",      {"fg": s:currAccent})
 call s:h("IncSearch",     {"bg": s:yellow, "fg": s:light_black})
 call s:h("Search",        {"bg": s:light_green, "fg": s:light_black})
 call s:h("MoreMsg",       {"fg": s:medium_gray, "cterm": "bold", "gui": "bold"})
 hi! link ModeMsg MoreMsg
 call s:h("LineNr",        {"fg": s:bg_subtle})
-call s:h("CursorLineNr",  {"fg": s:red, "bg": s:bg_very_subtle})
-call s:h("Question",      {"fg": s:red})
+call s:h("CursorLineNr",  {"fg": s:currAccent, "bg": s:bg_very_subtle})
+call s:h("Question",      {"fg": s:currAccent})
 call s:h("StatusLine",    {"bg": s:bg_very_subtle})
 call s:h("StatusLineNC",  {"bg": s:bg_very_subtle, "fg": s:medium_gray})
 call s:h("VertSplit",     {"bg": s:bg_very_subtle, "fg": s:bg_very_subtle})
@@ -161,30 +163,30 @@ call s:h("WildMenu",      {"fg": s:bg, "bg": s:norm})
 call s:h("Folded",        {"fg": s:medium_gray})
 call s:h("FoldColumn",    {"fg": s:bg_subtle})
 call s:h("DiffAdd",       {"fg": s:green})
-call s:h("DiffDelete",    {"fg": s:red})
+call s:h("DiffDelete",    {"fg": s:currAccent})
 call s:h("DiffChange",    {"fg": s:dark_yellow})
 call s:h("DiffText",      {"fg": s:dark_blue})
 call s:h("SignColumn",    {"fg": s:light_green})
 
 
 if has("gui_running")
-  call s:h("SpellBad",    {"gui": "underline", "sp": s:red})
+  call s:h("SpellBad",    {"gui": "underline", "sp": s:currAccent})
   call s:h("SpellCap",    {"gui": "underline", "sp": s:light_green})
   call s:h("SpellRare",   {"gui": "underline", "sp": s:light_purple})
   call s:h("SpellLocal",  {"gui": "underline", "sp": s:dark_green})
 else
-  call s:h("SpellBad",    {"cterm": "underline", "fg": s:red})
+  call s:h("SpellBad",    {"cterm": "underline", "fg": s:currAccent})
   call s:h("SpellCap",    {"cterm": "underline", "fg": s:light_green})
   call s:h("SpellRare",   {"cterm": "underline", "fg": s:light_purple})
   call s:h("SpellLocal",  {"cterm": "underline", "fg": s:dark_green})
 endif
 
 call s:h("Pmenu",         {"fg": s:norm, "bg": s:bg_very_subtle})
-call s:h("PmenuSel",      {"fg": s:subtle_black, "bg": s:red})
+call s:h("PmenuSel",      {"fg": s:subtle_black, "bg": s:currAccent})
 call s:h("PmenuSbar",     {"fg": s:norm, "bg": s:bg_subtle})
 call s:h("PmenuThumb",    {"fg": s:norm, "bg": s:bg_subtle})
 call s:h("TabLine",       {"fg": s:norm, "bg": s:bg_very_subtle})
-call s:h("TabLineSel",    {"fg": s:subtle_black, "bg": s:red, "gui": "bold", "cterm": "bold"})
+call s:h("TabLineSel",    {"fg": s:subtle_black, "bg": s:currAccent, "gui": "bold", "cterm": "bold"})
 call s:h("TabLineFill",   {"fg": s:norm, "bg": s:bg_very_subtle})
 call s:h("CursorColumn",  {"bg": s:bg_very_subtle})
 call s:h("CursorLine",    {"bg": s:bg_very_subtle})
@@ -203,11 +205,11 @@ call s:h("htmlH6",        {"bg": s:bg, "fg": s:norm})
 " Syntastic
 call s:h("SyntasticWarningSign",    {"fg": s:yellow})
 call s:h("SyntasticWarning",        {"bg": s:yellow, "fg": s:black, "gui": "bold", "cterm": "bold"})
-call s:h("SyntasticErrorSign",      {"fg": s:red})
-call s:h("SyntasticError",          {"bg": s:red, "fg": s:white, "gui": "bold", "cterm": "bold"})
+call s:h("SyntasticErrorSign",      {"fg": s:currAccent})
+call s:h("SyntasticError",          {"bg": s:currAccent, "fg": s:white, "gui": "bold", "cterm": "bold"})
 
 " which-key.nvim
-call s:h("WhichKey",                {"bg": s:bg, "fg": s:red, "gui": "bold", "cterm": "bold"})
+call s:h("WhichKey",                {"bg": s:bg, "fg": s:currAccent, "gui": "bold", "cterm": "bold"})
 call s:h("WhichKeyDesc",            {"bg": s:bg, "fg": s:norm_subtle, "gui": "bold", "cterm": "bold"})
 call s:h("WhichKeySeparator",       {"bg": s:bg, "fg": s:norm, "gui": "bold", "cterm": "bold"})
 call s:h("WhichKeyFloat",           {"bg": s:bg})

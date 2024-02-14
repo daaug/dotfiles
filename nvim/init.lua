@@ -14,6 +14,7 @@ vim.o.softtabstop = 2
 vim.o.autoindent = true
 vim.opt.termguicolors = true
 vim.cmd([[filetype on]])
+require("keymaps")
 -- Theme
 vim.cmd([[colorscheme sunbather]])
 
@@ -59,7 +60,6 @@ require("paq")({
 })
 
 -- First Priority
-require("keymaps")
 require('lualine-cfg')
 require("nvim-tree").setup({
   sort = {
@@ -108,7 +108,7 @@ require("nvim-tree").setup({
 
 -- Second Priority
 require'nvim-treesitter.configs'.setup {
-  --ensure_installed = { "go", "lua", "vim", "vimdoc", "dart", "javascript", "scss", "css" },
+  ensure_installed = { "go", "lua", "vim", "vimdoc", "dart", "javascript", "scss", "css" },
   -- Install parsers synchronously (only applied to `ensure_installed`)
   --sync_install = true,
   -- Automatically install missing parsers when entering buffer
