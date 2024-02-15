@@ -4,30 +4,31 @@
 
 -- stylua: ignore
 local colors = {
+  actual_red = '#ff0000',
   blue   = '#80a0ff',
   cyan   = '#79dac8',
-  black  = '#080808',
+  black  = '#000000',
   white  = '#c6c6c6',
-  red    = '#ff0000',
+  red    = '#aa0000',
   violet = '#d183e8',
-  grey   = '#303030',
+  grey   = '#707070',
 }
 
 local infrared = {
   normal = {
-    a = { fg = colors.red, bg = colors.black, gui = 'bold' },
-    b = { fg = colors.white, bg = colors.grey },
-    c = { fg = colors.black, bg = colors.grey },
+    a = { fg = colors.actual_red, bg = colors.black, gui = 'bold' },
+    b = { fg = colors.white, bg = colors.red },
+    c = { fg = colors.white, bg = colors.red },
   },
 
-  insert = { a = { fg = colors.black, bg = colors.red, gui = 'bold' } },
+  insert = { a = { fg = colors.black, bg = colors.actual_red, gui = 'bold' } },
   visual = { a = { fg = colors.black, bg = colors.cyan, gui = 'bold' } },
   replace = { a = { fg = colors.black, bg = colors.yellow, gui = 'bold' } },
 
   inactive = {
     a = { fg = colors.white, bg = colors.black },
-    b = { fg = colors.white, bg = colors.black },
-    c = { fg = colors.black, bg = colors.black },
+    b = { fg = colors.black, bg = colors.grey },
+    c = { fg = colors.black, bg = colors.grey },
   },
 }
 
