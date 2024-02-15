@@ -96,7 +96,7 @@ if &background != s:background
    execute "set background=" . s:background
 endif
 
-call s:h("Cursor",        {"bg": s:currAccent, "fg": s:norm})
+call s:h("Cursor",        {"bg": s:currAccent, "fg": s:actual_white})
 call s:h("Comment",       {"fg": s:bg_subtle, "gui": "italic"})
 
 call s:h("Constant",      {"fg": s:currAccent})
@@ -146,7 +146,7 @@ call s:h("NonText",       {"fg": s:medium_gray})
 call s:h("Directory",     {"fg": s:dark_blue})
 call s:h("ErrorMsg",      {"fg": s:currAccent})
 call s:h("IncSearch",     {"bg": s:yellow, "fg": s:light_black})
-call s:h("Search",        {"bg": s:light_green, "fg": s:light_black})
+call s:h("Search",        {"bg": s:actual_red, "fg": s:actual_black})
 call s:h("MoreMsg",       {"fg": s:medium_gray, "cterm": "bold", "gui": "bold"})
 hi! link ModeMsg MoreMsg
 call s:h("LineNr",        {"fg": s:bg_subtle})
