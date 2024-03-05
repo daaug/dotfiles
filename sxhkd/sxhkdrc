@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-  uxterm
+  xfce4-terminal
 
 # program launcher
 super + d
@@ -123,8 +123,16 @@ super + {Left,Down,Up,Right}
 #
 # Volume
 #
-XF86Audio{Mute,LowerVolume,RaiseVolume}
-  pactl -- set-sink-volume 0 {1%,-5%,+5%}
+#XF86Audio{Mute,LowerVolume,RaiseVolume}
+#  pactl -- set-sink-volume 0 {1%,-5%,+5%}
+
+#Volume Control
+XF86AudioLowerVolume
+  amixer set Master 5%-
+XF86AudioRaiseVolume
+  amixer set Master 5%+
+XF86AudioMute
+  amixer set Master toggle
 
 #
 # Misc
