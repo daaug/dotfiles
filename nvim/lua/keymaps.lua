@@ -44,12 +44,12 @@ vim.api.nvim_set_keymap("n", "-", ":vertical res -2<CR>", {noremap = true})
 
 -- Tabs
 vim.api.nvim_set_keymap("n", "<A-c>", ":tabclose<CR>", {noremap = true})
-vim.api.nvim_set_keymap("n", "<A-b>", ":tabnew<CR>", {noremap = true})
+vim.api.nvim_set_keymap("n", "<A-b>", ":tabnew %<CR>", {noremap = true})
 vim.api.nvim_set_keymap("n", "<A-n>", ":tabprev<CR>", {noremap = true})
 vim.api.nvim_set_keymap("n", "<A-m>", ":tabnext<CR>", {noremap = true})
 
 -- Tree
-vim.api.nvim_set_keymap("n", "<C-\\>", ":NvimTreeToggle<CR>", {noremap = true})
+--vim.api.nvim_set_keymap("n", "<C-\\>", ":NvimTreeToggle<CR>", {noremap = true})
 
 -- Easymotion
 vim.api.nvim_set_keymap("n", "/", "<Plug>(easymotion-sn)", {noremap = true})
@@ -60,4 +60,6 @@ vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+vim.api.nvim_set_keymap( "n", "<C-\\>", ":Telescope file_browser<CR>", { noremap = true })
+
 

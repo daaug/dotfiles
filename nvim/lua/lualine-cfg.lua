@@ -12,13 +12,16 @@ local colors = {
   red    = '#aa0000',
   violet = '#d183e8',
   grey   = '#707070',
+  orange   = '#f9a602',
 }
+
+local currAccent = colors.orange;
 
 local infrared = {
   normal = {
-    a = { fg = colors.actual_red, bg = colors.black, gui = 'bold' },
-    b = { fg = colors.white, bg = colors.red },
-    c = { fg = colors.white, bg = colors.red },
+    a = { fg = currAccent, bg = colors.black, gui = 'bold' },
+    b = { fg = colors.black, bg = colors.white },
+    c = { fg = colors.black, bg = currAccent },
   },
 
   insert = { a = { fg = colors.black, bg = colors.actual_red, gui = 'bold' } },
@@ -35,21 +38,27 @@ local infrared = {
 require('lualine').setup {
   options = {
     theme = infrared,
-    component_separators = '|',
-    section_separators = { left = '', right = '' },
+    component_separators = '┃',
+    section_separators = { left = '' },
   },
+  -- path = num
+  -- 0: Just the filename
+  -- 1: Relative path
+  -- 2: Absolute path
+  -- 3: Absolute path, with tilde as the home directory
+  -- 4: Filename and parent dir, with tilde as the home directory
   sections = {
     lualine_a = { 'mode' },
-    lualine_b = { 'branch', 'filename' },
-    lualine_c = {},
+    lualine_b = { 'branch', },
+    lualine_c = {{'filename', path = 1},},
     lualine_x = {},
     lualine_y = {},
     lualine_z = { 'progress' },
   },
   inactive_sections = {
     lualine_a = {},
-    lualine_b = { 'branch', 'filename' },
-    lualine_c = {},
+    lualine_b = { 'branch', },
+    lualine_c = {{'filename', path = 1},},
     lualine_x = {},
     lualine_y = {},
     lualine_z = { 'location' },

@@ -42,7 +42,7 @@ let s:lighter_black   = { "gui": "#4E4E4E", "cterm": "239" }
 let s:lighter_gray    = { "gui": "#C6C6C6", "cterm": "251" }
 let s:lightest_gray   = { "gui": "#EEEEEE", "cterm": "255" }
 let s:medium_gray     = { "gui": "#767676", "cterm": "243" }
-let s:orange          = { "gui": "#D75F5F", "cterm": "167" }
+let s:orange          = { "gui": "#f9a602", "cterm": "167" }
 let s:subtle_black    = { "gui": "#121212", "cterm": "233" }
 let s:white           = { "gui": "#F1F1F1", "cterm": "15"  }
 let s:yellow          = { "gui": "#F3E430", "cterm": "11"  }
@@ -75,7 +75,7 @@ else
   let s:yellow          = s:dark_yellow
 endif
 
-let s:currAccent = s:red
+let s:currAccent = s:orange
 
 " https://github.com/noahfrederick/vim-hemisu/
 function! s:h(group, style)
@@ -146,7 +146,8 @@ call s:h("NonText",       {"fg": s:medium_gray})
 call s:h("Directory",     {"fg": s:dark_blue})
 call s:h("ErrorMsg",      {"fg": s:currAccent})
 call s:h("IncSearch",     {"bg": s:yellow, "fg": s:light_black})
-call s:h("Search",        {"bg": s:actual_red, "fg": s:actual_black})
+call s:h("Search",        {"bg": s:actual_black, "fg": s:actual_white})
+"call s:h("Search",        {"bg": s:actual_red, "fg": s:actual_black})
 call s:h("MoreMsg",       {"fg": s:medium_gray, "cterm": "bold", "gui": "bold"})
 hi! link ModeMsg MoreMsg
 call s:h("LineNr",        {"fg": s:bg_subtle})

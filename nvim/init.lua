@@ -14,7 +14,6 @@ vim.o.softtabstop = 2
 vim.o.autoindent = true
 vim.opt.termguicolors = true
 vim.cmd([[filetype on]])
-require("keymaps")
 -- Theme
 vim.cmd([[colorscheme sunbather]])
 
@@ -52,6 +51,7 @@ require("paq")({
   "nvim-tree/nvim-tree.lua";
   "nvim-lua/plenary.nvim";
   "nvim-telescope/telescope.nvim";
+  "nvim-telescope/telescope-file-browser.nvim";
 
   -- Shougo
   --"Shougo/ddc.vim";
@@ -60,51 +60,55 @@ require("paq")({
 })
 
 -- First Priority
+require("keymaps")
 require('lualine-cfg')
-require("nvim-tree").setup({
-  sort = {
-    sorter = "case_sensitive",
-  },
-  view = {
-    width = 30,
-  },
-  filters = {
-    dotfiles = true,
-  },
-  sort_by = "case_sensitive",
-  renderer = {
-    group_empty = true,
-    icons = {
-      git_placement = "after",
-      show = {
-        folder_arrow = true,
-      },
-      glyphs = {
-        default = "-",
-        symlink = "y",
-        folder = {
-          arrow_closed = ">",
-          arrow_open = "v",
-          default = " ",
-          open = "v",
-          empty = "z",
-          empty_open = "Z",
-          symlink = "y",
-          symlink_open = "Y",
-        },
-        git = {
-          unstaged = "uns",
-          staged = "sta",
-          unmerged = "unm",
-          renamed = "ren",
-          untracked = "unt",
-          deleted = "del",
-          ignored = "ign",
-        },
-      },
-    },
-  },
-})
+require("plenary")
+require("telescope").setup()
+require("telescope").load_extension "file_browser"
+--require("nvim-tree").setup({
+--  sort = {
+--    sorter = "case_sensitive",
+--  },
+--  view = {
+--    width = 30,
+--  },
+--  filters = {
+--    dotfiles = true,
+--  },
+--  sort_by = "case_sensitive",
+--  renderer = {
+--    group_empty = true,
+--    icons = {
+--      git_placement = "after",
+--      show = {
+--        folder_arrow = true,
+--      },
+--      glyphs = {
+--        default = "-",
+--        symlink = "y",
+--        folder = {
+--          arrow_closed = ">",
+--          arrow_open = "v",
+--          default = " ",
+--          open = "v",
+--          empty = "z",
+--          empty_open = "Z",
+--          symlink = "y",
+--          symlink_open = "Y",
+--        },
+--        git = {
+--          unstaged = "uns",
+--          staged = "sta",
+--          unmerged = "unm",
+--          renamed = "ren",
+--          untracked = "unt",
+--          deleted = "del",
+--          ignored = "ign",
+--        },
+--      },
+--    },
+--  },
+--})
 
 -- Second Priority
 require'nvim-treesitter.configs'.setup {
@@ -118,8 +122,6 @@ require'nvim-treesitter.configs'.setup {
     enable = true,
   },
 }
-require("plenary")
-require("telescope").setup()
 require("mason").setup()
 require("mason-lspconfig").setup()
 require("lspconfig-cfg")
