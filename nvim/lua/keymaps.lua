@@ -12,6 +12,7 @@ vim.api.nvim_set_keymap("i", "\'", "\'\'<ESC>i", {noremap = true})
 vim.api.nvim_set_keymap("i", "\"", "\"\"<ESC>i", {noremap = true})
 vim.api.nvim_set_keymap("n", "<F8>", ":mks!<CR>", {noremap = true})
 vim.api.nvim_set_keymap("n", "<F9>", ":source ./Session.vim<CR>", {noremap = true})
+vim.api.nvim_set_keymap("n", "<C-h>", ":%s:::g<left><left><left>", {noremap = true})
 
 -- Buffer
 --vim.api.nvim_set_keymap("n", "<leader>l", ":Buffers<CR>", {noremap = true})
