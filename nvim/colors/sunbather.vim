@@ -108,7 +108,8 @@ hi! link String           Constant
 
 "call s:h("Identifier",    {"fg": s:dark_blue})
 hi! link Identifier       Normal
-hi! link Function         Identifier
+"hi! link Function         Identifier
+call s:h("Function",     {"fg": s:currAccent})
 
 call s:h("Statement",     {"fg": s:norm_subtle})
 hi! link Conditonal       Statement

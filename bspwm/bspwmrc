@@ -1,9 +1,10 @@
 #! /bin/sh
 
+~/.screenlayout/main_res.sh &
 pgrep -x sxhkd > /dev/null || sxhkd &
 feh --bg-scale /home/daniel/Pictures/default.jpg &
-redshift -P -l 15:-48 -t 4500:3700 -b 0.8:0.7 &
-bash /home/daniel/.config/lemonbar/lemonbar-bar.sh | lemonbar -p &
+redshift -P -l 15:-48 -t 5000:3700 -b 1.0:1.0 &
+bash /home/daniel/.config/lemonbar/lemonbar-bar.sh | lemonbar -p -b &
 
 bspc monitor -d one two three four five
 

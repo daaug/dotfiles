@@ -11,7 +11,7 @@ CurrentWorkspace() {
 
 # Print everything
 while true; do
-  echo "%{l}%{F#FFFF00}%{B#0000FF} $(CurrentWorkspace) %{c}%{F#FFFF00}%{B#0000FF} $(Clock) %{F-}%{B-}"
+  echo "%{l}%{F#000000}%{B#f9a602} $(CurrentWorkspace) %{c}%{F#000000}%{B#f9a602} $(Clock) %{F-}%{B-}"
   sleep 1
 done
 
