@@ -69,6 +69,9 @@
         (command: Execute, value: "loginctl kill-session $XDG_SESSION_ID", modifier: ["modkey", "Shift"], key: "e"),
         (command: Execute, value: "slock", modifier: ["modkey", "Control"], key: "l"),
         (command: Execute, value: "xfce4-terminal", modifier: ["modkey"], key: "Return"),
+        (command: Execute, value: "amixer set Master 5%-", modifier: [""], key: "XF86AudioLowerVolume"),
+        (command: Execute, value: "amixer set Master 5%+", modifier: [""], key: "XF86AudioRaiseVolume"),
+        (command: Execute, value: "amixer set Master toggle", modifier: [""], key: "XF86AudioMute"),
         (command: FocusWindowDown, value: "", modifier: ["modkey"], key: "Down"),
         (command: FocusWindowDown, value: "", modifier: ["modkey"], key: "j"),
         (command: FocusWindowUp, value: "", modifier: ["modkey"], key: "Up"),
@@ -110,3 +113,4 @@
     ],
     state_path: None,
 )
+
