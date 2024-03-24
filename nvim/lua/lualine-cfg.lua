@@ -5,14 +5,15 @@
 -- stylua: ignore
 local colors = {
   actual_red = '#ff0000',
+  black  = '#000000',
   blue   = '#80a0ff',
   cyan   = '#79dac8',
-  black  = '#000000',
-  white  = '#c6c6c6',
+  grey   = '#707070',
+  --orange   = '#f9a602',
+  orange   = '#ff8700',
   red    = '#aa0000',
   violet = '#d183e8',
-  grey   = '#707070',
-  orange   = '#f9a602',
+  white  = '#c6c6c6',
 }
 
 local currAccent = colors.orange;
