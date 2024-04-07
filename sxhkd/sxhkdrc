@@ -4,7 +4,11 @@
 
 # terminal emulator
 super + Return
-  xfce4-terminal
+  urxvt
+
+# alternative terminal emulator
+super + shift + Return
+  x-terminal-emulator
 
 # program launcher
 super + d
