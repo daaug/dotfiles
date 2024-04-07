@@ -9,9 +9,13 @@ CurrentWorkspace() {
   printf "$WORKSPACE"
 }
 
+Volume(){
+  awk -F"[][]" '/Left:/ { print $2 }' <(amixer sget Master)
+}
+
 # Print everything
 while true; do
-  echo "%{l}%{F#000000}%{B#f9a602} $(CurrentWorkspace) %{c}%{F#000000}%{B#f9a602} $(Clock) %{F-}%{B-}"
-  sleep 1
+  echo "%{l}%{F#000000}%{B#f9a602}$(CurrentWorkspace) %{c}%{F#000000}%{B#f9a602} $(Clock) %{F-}%{B-} %{r}%{F#000000}%{B#f9a602} Vol: $(Volume) %{F-}%{B-}"
+  sleep 0.2
 done
 
