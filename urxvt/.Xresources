@@ -1,0 +1,61 @@
+! Always call xrdb -merge .Xresources
+! Restore Ctrl+Shift+(c|v)
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+
+! FONT
+!URxvt.font: xft:Monospace:pixelsize=21
+!URxvt.boldfont: xft:Monospace-Bold:pixelsize=21
+URxvt.font: xft:Courier Prime:pixelsize=21
+URxvt.boldfont: xft:Courier Prime Bold:pixelsize=21
+
+! THEME
+! Remember
+! Normal      Bright
+!--------    -------
+!0 Black      8 Black
+!1 Red        9 Red
+!2 Yellow    10 Yellow
+!3 Green     11 Green
+!4 Blue      12 Blue
+!5 Magenta   13 Magenta
+!6 Cyan      14 Cyan
+!7 White     15 White
+!! special
+*.foreground:   #cbe3e7
+*.background:   #1b182c
+*.cursorColor:  #fbfcfc
+
+! black
+*.color0:       #100e23
+*.color8:       #565575
+
+! red
+*.color1:       #ff8080
+*.color9:       #ff5458
+
+! green
+*.color2:       #95ffa4
+*.color10:      #62d196
+
+! yellow
+*.color3:       #ffe9aa
+*.color11:      #ffb378
+
+! blue
+*.color4:       #91ddff
+*.color12:      #65b2ff
+
+! magenta
+*.color5:       #c991e1
+*.color13:      #906cff
+
+! cyan
+*.color6:       #aaffe4
+*.color14:      #63f2f1
+
+! white
+*.color7:       #cbe3e7
+*.color15:      #a6b3cc
