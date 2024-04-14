@@ -57,6 +57,6 @@ require'lspconfig'.lua_ls.setup {
 require'lspconfig'.tsserver.setup {
     capabilities = capabilities,
 }
---require'lspconfig'.ast_grep.setup {
---    capabilities = capabilities,
---}
+require'lspconfig'.cssls.setup {
+    capabilities = capabilities,
+}
