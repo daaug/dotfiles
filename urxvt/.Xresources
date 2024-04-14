@@ -1,7 +1,13 @@
 ! Always call xrdb -merge .Xresources
+
 ! Restore Ctrl+Shift+(c|v)
 URxvt.keysym.Shift-Control-V: eval:paste_clipboard
 URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+!URxvt.keysym.C-S-0x43: eval:selection_to_clipboard
+!URxvt.keysym.C-S-0x56: eval:paste_clipboard
+URxvt.perl-ext-common: default,-confirm-paste
+
+! Disable ISO 14755 unicode input so we can use Ctrl-Shift bindings
 URxvt.iso14755: false
 URxvt.iso14755_52: false
 
