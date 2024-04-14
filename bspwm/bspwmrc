@@ -1,6 +1,6 @@
 #! /bin/sh
 pgrep -x sxhkd > /dev/null || sxhkd &
-feh --bg-scale ~/.config/feh/wallpapers/spaceship_01.jpg &
+feh --bg-scale ~/.config/feh/wallpapers/origami.jpg &
 bash /home/daniel/.config/lemonbar/lemonbar-bar.sh | lemonbar -p -b -f "24" &
 #redshift -P -l 15:-48 -t 5000:3700 -b 1.0:1.0 &
 #~/.screenlayout/main_res.sh &
