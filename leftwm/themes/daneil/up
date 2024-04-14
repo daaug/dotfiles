@@ -18,3 +18,5 @@ if [ -x "$(command -v feh)" ]; then
   feh --bg-scale $HOME/Pictures/wallpapers/spaceship_01.jpg
 fi
 
+eww daemon
+eww open bar
