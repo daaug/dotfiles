@@ -53,6 +53,9 @@ require("paq")({
   "nvim-telescope/telescope.nvim";
   "nvim-telescope/telescope-file-browser.nvim";
 
+  -- Time Management
+  {"wakatime/vim-wakatime", lazy = false};
+
   -- Shougo
   --"Shougo/ddc.vim";
   --"vim-denops/denops.vim";
