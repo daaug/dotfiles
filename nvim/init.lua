@@ -41,6 +41,7 @@ require("paq")({
   {"nvim-treesitter/nvim-treesitter", build = ":TSUpdateSync"};
   "airblade/vim-gitgutter";
   "nvim-lualine/lualine.nvim";
+  "windwp/nvim-autopairs";
 
   -- Word Management
   "easymotion/vim-easymotion";
@@ -68,6 +69,7 @@ require('lualine-cfg')
 require("plenary")
 require("telescope").setup()
 require("telescope").load_extension "file_browser"
+require("nvim-autopairs").setup({ map_cr = true })
 --require("nvim-tree").setup({
 --  sort = {
 --    sorter = "case_sensitive",
