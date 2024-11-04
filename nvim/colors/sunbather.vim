@@ -50,7 +50,7 @@ let s:yellow          = { "gui": "#F3E430", "cterm": "11"  }
 
 let s:background = &background
 
-if &background == "dark"
+"if &background == "dark"
   let s:bg              = s:actual_black
   let s:bg_subtle       = s:lighter_black
   let s:bg_very_subtle  = s:subtle_black
@@ -62,19 +62,19 @@ if &background == "dark"
   let s:red             = s:actual_red
   let s:visual          = s:light_black
   let s:yellow          = s:light_yellow
-else
-  let s:bg              = s:actual_white
-  let s:bg_subtle       = s:light_gray
-  let s:bg_very_subtle  = s:lightest_gray
-  let s:cyan            = s:dark_cyan
-  let s:green           = s:dark_green
-  let s:norm            = s:light_black
-  let s:norm_subtle     = s:medium_gray
-  let s:pink            = s:dark_pink
-  let s:red             = s:dark_red
-  let s:visual          = s:dark_pink
-  let s:yellow          = s:dark_yellow
-endif
+"else
+"  let s:bg              = s:actual_white
+"  let s:bg_subtle       = s:light_gray
+"  let s:bg_very_subtle  = s:lightest_gray
+"  let s:cyan            = s:dark_cyan
+"  let s:green           = s:dark_green
+"  let s:norm            = s:light_black
+"  let s:norm_subtle     = s:medium_gray
+"  let s:pink            = s:dark_pink
+"  let s:red             = s:dark_red
+"  let s:visual          = s:dark_pink
+"  let s:yellow          = s:dark_yellow
+"endif
 
 let s:currAccent = s:orange
 
