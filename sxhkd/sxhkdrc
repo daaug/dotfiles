@@ -1,3 +1,8 @@
+#####
+# !!! DEPENDENCIES !!!
+#####
+# sudo apt install brightnessctl
+
 #
 # wm independent hotkeys
 #
@@ -137,6 +142,13 @@ XF86AudioRaiseVolume
   amixer set Master 5%+
 XF86AudioMute
   amixer set Master toggle
+
+#Brightness Control
+XF86MonBrightnessUp
+    brightnessctl set +10%  # Increase brightness by 10%
+XF86MonBrightnessDown
+    brightnessctl set 10%-  # Decrease brightness by 10%
+
 
 #
 # Misc
