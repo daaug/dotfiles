@@ -1,4 +1,7 @@
 #! /bin/sh
+# Enable touchpad (Get touchpad id via 'xinput list')
+xinput set-prop 11 "libinput Tapping Enabled" 1
+xinput set-prop 11 "libinput Natural Scrolling Enabled" 0
 pgrep -x sxhkd > /dev/null || sxhkd &
 feh --bg-scale ~/.config/feh/wallpapers/origami.jpg &
 bash /home/daniel/.config/lemonbar/lemonbar-bar.sh | lemonbar -p -b -f "24" &
