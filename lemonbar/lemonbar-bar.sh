@@ -4,9 +4,10 @@ Clock() {
   DATETIME=$(date "+%a %b %d, %T")
   printf "$DATETIME"
 }
+
 CurrentWorkspace() {
   WORKSPACE=$(bspc query -D -d focused --names)
-  printf "$WORKSPACE"
+  printf " > $WORKSPACE"
 }
 
 Volume(){
