@@ -1,7 +1,9 @@
 #! /bin/sh
 # Enable touchpad (Get touchpad id via 'xinput list')
-xinput set-prop 11 "libinput Tapping Enabled" 1
-xinput set-prop 11 "libinput Natural Scrolling Enabled" 0
+XINPUT_TOUCHPAD_ID=$(xinput list | awk -F'id=' '/Touchpad/{print $2}' | awk '{print $1}')
+xinput set-prop $XINPUT_TOUCHPAD_ID "libinput Tapping Enabled" 1
+xinput set-prop $XINPUT_TOUCHPAD_ID "libinput Natural Scrolling Enabled" 0
+unset XINPUT_TOUCHPAD_ID
 
 pgrep -x sxhkd > /dev/null || sxhkd &
 #feh --bg-scale ~/.config/feh/wallpapers/origami.jpg &
