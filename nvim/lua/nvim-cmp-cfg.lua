@@ -39,24 +39,21 @@ cmp.setup({
 
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-require'lspconfig'.emmet_ls.setup {
+vim.lsp.config("emmet_ls", {
     capabilities = capabilities,
-}
-require'lspconfig'.clangd.setup {
+})
+vim.lsp.config("clangd", {
     capabilities = capabilities,
-}
-require'lspconfig'.dartls.setup {
+})
+vim.lsp.config("gopls", {
     capabilities = capabilities,
-}
-require'lspconfig'.gopls.setup {
+})
+vim.lsp.config("lua_ls", {
     capabilities = capabilities,
-}
-require'lspconfig'.lua_ls.setup {
+})
+vim.lsp.config("ts_ls", {
     capabilities = capabilities,
-}
-require'lspconfig'.tsserver.setup {
+})
+vim.lsp.config("cssls", {
     capabilities = capabilities,
-}
-require'lspconfig'.cssls.setup {
-    capabilities = capabilities,
-}
+})
