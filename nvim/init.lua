@@ -9,11 +9,19 @@ vim.o.cursorline = true
 vim.o.updatetime = 250
 vim.o.termguicolors = true
 vim.o.expandtab = true
-vim.o.shiftwidth = 2
-vim.o.softtabstop = 2
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
+vim.o.softtabstop = 4
 vim.o.autoindent = true
 vim.opt.termguicolors = true
 vim.cmd([[filetype on]])
+
+local mise_path = vim.fn.expand("~/.local/share/mise/shims")
+vim.env.PATH = mise_path .. ":" .. vim.env.PATH
+-- Verify the PATH is set correctly
+--print("Mise PATH: " .. mise_path)
+--print("Full PATH: " .. vim.env.PATH)
+
 -- Theme
 vim.cmd([[colorscheme sunbather]])
 
@@ -50,16 +58,16 @@ require("paq")({
 
   -- File Management
   "nvim-tree/nvim-tree.lua";
+  "junegunn/fzf"; -- fzf-lua mandatory dependency
+  "ibhagwan/fzf-lua";
+  "nvim-mini/mini.nvim";
+  "nvim-mini/mini.icons"; -- fzf-lua|mini.nvim optional dependency
+
+  --Misc
   "nvim-lua/plenary.nvim";
-  "nvim-telescope/telescope.nvim";
-  "nvim-telescope/telescope-file-browser.nvim";
 
   -- Time Management
   {"wakatime/vim-wakatime", lazy = false};
-
-  -- Shougo
-  --"Shougo/ddc.vim";
-  --"vim-denops/denops.vim";
 
 })
 
@@ -67,67 +75,179 @@ require("paq")({
 require("keymaps")
 require('lualine-cfg')
 require("plenary")
-require("telescope").setup()
-require("telescope").load_extension "file_browser"
+require("mini.icons").setup({
+})
+require("mini.files").setup({
+  options = {
+    use_as_default_explorer = true,
+  },
+  content = {
+    prefix = function(entry)
+      local ext = vim.fn.fnamemodify(entry.name, ':e')
+      local ascii_icons = {
+        --
+        -- Programming Languages
+        --
+        c = "🔧 ",       -- C
+        cpp = "⚙️ ",     -- C++
+        cs = "💠 ",      -- C#
+        go = "🐹 ",      -- Go
+        java = "☕ ",     -- Java
+        js = "📜 ",      -- JavaScript
+        kotlin = "🅰️ ",  -- Kotlin
+        lua = "🌙 ",     -- Lua
+        php = "🐘 ",     -- PHP
+        py = "🐍 ",      -- Python
+        r = "📊 ",       -- R
+        rb = "💎 ",      -- Ruby
+        rust = "🦀 ",     -- Rust
+        scala = "🧪 ",   -- Scala
+        swift = "🐦 ",   -- Swift
+        ts = "🔷 ",      -- TypeScript
+        --
+        -- Web & Markup
+        --
+        css = "🎨 ",     -- CSS
+        html = "🌐 ",     -- HTML
+        less = "📐 ",    -- LESS
+        sass = "💅 ",    -- SASS
+        scss = "💅 ",    -- SCSS
+        svg = "🖼️ ",     -- SVG
+        xml = "📄 ",     -- XML
+        --
+        -- Data & Config Files
+        --
+        cfg = "⚙️ ",     -- Config
+        conf = "⚙️ ",    -- Config
+        csv = "📊 ",     -- CSV
+        ini = "⚙️ ",     -- INI
+        json = "📋 ",     -- JSON
+        toml = "🔧 ",    -- TOML
+        tsv = "📊 ",     -- TSV
+        xml = "📄 ",     -- XML
+        yaml = "⚙️ ",    -- YAML
+        yml = "⚙️ ",     -- YAML
+        --
+        -- Documentation
+        --
+        doc = "📄 ",     -- Word
+        docx = "📄 ",    -- Word
+        md = "📝 ",      -- Markdown
+        pdf = "📕 ",     -- PDF
+        txt = "📄 ",     -- Text
+        --
+        -- Database
+        --
+        db = "💾 ",      -- Database
+        mdb = "🗃️ ",     -- Access DB
+        sql = "🗃️ ",     -- SQL
+        sqlite = "🗃️ ",  -- SQLite
+        --
+        -- Build & Package Management
+        --
+        cmake = "🔨 ",   -- CMake
+        dockerfile = "🐳 ", -- Docker
+        gitignore = "👁️ ", -- Git ignore
+        gradle = "🔄 ",  -- Gradle
+        lock = "🔒 ",    -- Lock files
+        makefile = "🔨 ", -- Makefile
+        --
+        -- Archives & Binaries
+        --
+        bin = "⚙️ ",     -- Binary
+        dll = "🔧 ",     -- DLL
+        exe = "⚙️ ",     -- Executable
+        gz = "📦 ",      -- Gzip
+        rar = "📦 ",     -- RAR
+        tar = "📦 ",     -- Tar archive
+        zip = "📦 ",     -- Zip archive
+        --
+        -- Version Control & DevOps
+        --
+        git = "📚 ",     -- Git
+        gitattributes = "⚙️ ",
+        github = "🐙 ",  -- GitHub
+        gitlab = "🦊 ",  -- GitLab
+        gitmodules = "⚙️ ",
+        --
+        -- Images & Media
+        --
+        bmp = "🖼️ ",     -- BMP
+        gif = "🖼️ ",     -- GIF
+        ico = "🖼️ ",     -- ICO
+        jpeg = "🖼️ ",    -- JPEG
+        jpg = "🖼️ ",     -- JPEG
+        mp3 = "🎵 ",     -- Audio
+        mp4 = "🎥 ",     -- Video
+        png = "🖼️ ",     -- PNG
+        wav = "🎵 ",     -- Audio
+        --
+        -- Special Files
+        --
+        bash = "💻 ",    -- Bash
+        bat = "💻 ",     -- Batch
+        env = "🔑 ",     -- Environment
+        ps1 = "💻 ",     -- PowerShell
+        sh = "💻 ",      -- Shell
+        zsh = "💻 ",     -- Zsh
+      }
+      
+      if entry.fs_type == 'directory' then
+        return "📁 "
+      else
+        return ascii_icons[ext] or "📄 "
+      end
+    end,
+  }
+})
+require("fzf-lua").setup({ defaults = { file_icons = false } })
 require("nvim-autopairs").setup({ map_cr = true })
---require("nvim-tree").setup({
---  sort = {
---    sorter = "case_sensitive",
---  },
---  view = {
---    width = 30,
---  },
---  filters = {
---    dotfiles = true,
---  },
---  sort_by = "case_sensitive",
---  renderer = {
---    group_empty = true,
---    icons = {
---      git_placement = "after",
---      show = {
---        folder_arrow = true,
---      },
---      glyphs = {
---        default = "-",
---        symlink = "y",
---        folder = {
---          arrow_closed = ">",
---          arrow_open = "v",
---          default = " ",
---          open = "v",
---          empty = "z",
---          empty_open = "Z",
---          symlink = "y",
---          symlink_open = "Y",
---        },
---        git = {
---          unstaged = "uns",
---          staged = "sta",
---          unmerged = "unm",
---          renamed = "ren",
---          untracked = "unt",
---          deleted = "del",
---          ignored = "ign",
---        },
---      },
---    },
---  },
---})
 
 -- Second Priority
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "go", "lua", "vim", "vimdoc", "dart", "javascript", "scss", "css" },
-  -- Install parsers synchronously (only applied to `ensure_installed`)
-  --sync_install = true,
-  -- Automatically install missing parsers when entering buffer
-  -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
+  ensure_installed = { "go", "lua", "vim", "vimdoc", "javascript", "scss", "css", "php" },
   auto_install = true,
   highlight = {
     enable = true,
   },
 }
-require("mason").setup()
-require("mason-lspconfig").setup()
+
+require("mason").setup({
+  PATH = "prepend", -- This ensures mise tools are found first
+})
+
+require("mason-lspconfig").setup({
+  ensure_installed = {
+    "ts_ls",
+    "html",
+    "cssls",
+    "jsonls",
+    "eslint",
+    "emmet_language_server",
+  }
+})
+
 require("lspconfig-cfg")
 require("nvim-cmp-cfg")
+
+-- Check if mise tools are available
+--local function check_mise_tools()
+--  local handle = io.popen("which typescript-language-server")
+--  local result = handle:read("*a")
+--  handle:close()
+--
+--  if result and result ~= "" then
+--    print("✓ TypeScript language server found: " .. result)
+--  else
+--    print("✗ TypeScript language server not found")
+--  end
+--
+--  -- Check node version
+--  local node_handle = io.popen("node --version")
+--  local node_version = node_handle:read("*a")
+--  node_handle:close()
+--  print("Node version: " .. (node_version or "Not found"))
+--end
+--
+---- Run the check
+--check_mise_tools()

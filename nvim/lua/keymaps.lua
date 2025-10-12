@@ -52,11 +52,11 @@ vim.api.nvim_set_keymap("n", "<A-m>", ":tabnext<CR>", {noremap = true})
 vim.api.nvim_set_keymap("n", "/", "<Plug>(easymotion-sn)", {noremap = true})
 
 -- Telescope
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-vim.api.nvim_set_keymap( "n", "<C-\\>", ":Telescope file_browser<CR>", { noremap = true })
+vim.keymap.set('n', '<leader>ff', ":FzfLua files<CR>", {})
+vim.keymap.set('n', '<leader>fg', ":FzfLua live_grep<CR>", {})
+vim.keymap.set('n', '<leader>fb', ":FzfLua buffers<CR>", {})
+
+-- MiniFiles (Alternative to telescope file browser)
+vim.api.nvim_set_keymap( "n", "<C-\\>", ":lua MiniFiles.open()<CR>", { noremap = true })
 
 
