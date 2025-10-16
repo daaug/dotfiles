@@ -6,17 +6,18 @@
 local colors = {
   actual_red = '#ff0000',
   black  = '#000000',
-  blue   = '#80a0ff',
+  blue   = '#005aff',
   cyan   = '#79dac8',
   grey   = '#707070',
   light_orange   = '#f9a602',
   orange = '#ff8700',
   red    = '#aa0000',
   violet = '#d183e8',
+  yellow = '#ffff00',
   white  = '#c6c6c6',
 }
 
-local currAccent = colors.orange;
+local currAccent = colors.actual_red;
 
 local infrared = {
   normal = {
@@ -38,7 +39,7 @@ local infrared = {
 
 require('lualine').setup {
   options = {
-    theme = infrared,
+    --theme = infrared,
     component_separators = '┃',
     section_separators = { left = '' },
   },

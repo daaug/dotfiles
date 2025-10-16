@@ -23,7 +23,9 @@ vim.env.PATH = mise_path .. ":" .. vim.env.PATH
 --print("Full PATH: " .. vim.env.PATH)
 
 -- Theme
-vim.cmd([[colorscheme sunbather]])
+vim.cmd([[colorscheme chromono]])
+--vim.cmd([[colorscheme notcobalt]])
+--vim.cmd([[colorscheme hyper]])
 
 -- Download paq
 paq_path = "~/.local/share/nvim/site/pack/paqs"
