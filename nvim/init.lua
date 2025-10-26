@@ -68,14 +68,16 @@ require("paq")({
   "L3MON4D3/LuaSnip";
 
   -- File Management
-  "nvim-tree/nvim-tree.lua";
-  "junegunn/fzf"; -- fzf-lua mandatory dependency
-  "ibhagwan/fzf-lua";
+  --"nvim-tree/nvim-tree.lua";
+  --"junegunn/fzf"; -- fzf-lua mandatory dependency
+  --"ibhagwan/fzf-lua";
+
+  -- nvim-mini
   "nvim-mini/mini.nvim";
   "nvim-mini/mini.icons"; -- fzf-lua|mini.nvim optional dependency
 
   --Misc
-  "nvim-lua/plenary.nvim";
+  "nvim-lua/plenary.nvim"; -- lualine, mason, treesitter
 
   -- Time Management
   {"wakatime/vim-wakatime", lazy = false};
@@ -84,149 +86,25 @@ require("paq")({
 
 -- First Priority
 require("keymaps")
-require('lualine-cfg')
 require("plenary")
-require("mini.icons").setup({
-})
-require("mini.files").setup({
-  options = {
-    use_as_default_explorer = true,
-  },
-  content = {
-    prefix = function(entry)
-      local ext = vim.fn.fnamemodify(entry.name, ':e')
-      local ascii_icons = {
-        --
-        -- Programming Languages
-        --
-        c = "🔧 ",       -- C
-        cpp = "⚙️ ",     -- C++
-        cs = "💠 ",      -- C#
-        go = "🐹 ",      -- Go
-        java = "☕ ",     -- Java
-        js = "📜 ",      -- JavaScript
-        kotlin = "🅰️ ",  -- Kotlin
-        lua = "🌙 ",     -- Lua
-        php = "🐘 ",     -- PHP
-        py = "🐍 ",      -- Python
-        r = "📊 ",       -- R
-        rb = "💎 ",      -- Ruby
-        rust = "🦀 ",     -- Rust
-        scala = "🧪 ",   -- Scala
-        swift = "🐦 ",   -- Swift
-        ts = "🔷 ",      -- TypeScript
-        --
-        -- Web & Markup
-        --
-        css = "🎨 ",     -- CSS
-        html = "🌐 ",     -- HTML
-        less = "📐 ",    -- LESS
-        sass = "💅 ",    -- SASS
-        scss = "💅 ",    -- SCSS
-        svg = "🖼️ ",     -- SVG
-        xml = "📄 ",     -- XML
-        --
-        -- Data & Config Files
-        --
-        cfg = "⚙️ ",     -- Config
-        conf = "⚙️ ",    -- Config
-        csv = "📊 ",     -- CSV
-        ini = "⚙️ ",     -- INI
-        json = "📋 ",     -- JSON
-        toml = "🔧 ",    -- TOML
-        tsv = "📊 ",     -- TSV
-        xml = "📄 ",     -- XML
-        yaml = "⚙️ ",    -- YAML
-        yml = "⚙️ ",     -- YAML
-        --
-        -- Documentation
-        --
-        doc = "📄 ",     -- Word
-        docx = "📄 ",    -- Word
-        md = "📝 ",      -- Markdown
-        pdf = "📕 ",     -- PDF
-        txt = "📄 ",     -- Text
-        --
-        -- Database
-        --
-        db = "💾 ",      -- Database
-        mdb = "🗃️ ",     -- Access DB
-        sql = "🗃️ ",     -- SQL
-        sqlite = "🗃️ ",  -- SQLite
-        --
-        -- Build & Package Management
-        --
-        cmake = "🔨 ",   -- CMake
-        dockerfile = "🐳 ", -- Docker
-        gitignore = "👁️ ", -- Git ignore
-        gradle = "🔄 ",  -- Gradle
-        lock = "🔒 ",    -- Lock files
-        makefile = "🔨 ", -- Makefile
-        --
-        -- Archives & Binaries
-        --
-        bin = "⚙️ ",     -- Binary
-        dll = "🔧 ",     -- DLL
-        exe = "⚙️ ",     -- Executable
-        gz = "📦 ",      -- Gzip
-        rar = "📦 ",     -- RAR
-        tar = "📦 ",     -- Tar archive
-        zip = "📦 ",     -- Zip archive
-        --
-        -- Version Control & DevOps
-        --
-        git = "📚 ",     -- Git
-        gitattributes = "⚙️ ",
-        github = "🐙 ",  -- GitHub
-        gitlab = "🦊 ",  -- GitLab
-        gitmodules = "⚙️ ",
-        --
-        -- Images & Media
-        --
-        bmp = "🖼️ ",     -- BMP
-        gif = "🖼️ ",     -- GIF
-        ico = "🖼️ ",     -- ICO
-        jpeg = "🖼️ ",    -- JPEG
-        jpg = "🖼️ ",     -- JPEG
-        mp3 = "🎵 ",     -- Audio
-        mp4 = "🎥 ",     -- Video
-        png = "🖼️ ",     -- PNG
-        wav = "🎵 ",     -- Audio
-        --
-        -- Special Files
-        --
-        bash = "💻 ",    -- Bash
-        bat = "💻 ",     -- Batch
-        env = "🔑 ",     -- Environment
-        ps1 = "💻 ",     -- PowerShell
-        sh = "💻 ",      -- Shell
-        zsh = "💻 ",     -- Zsh
-      }
-      
-      if entry.fs_type == 'directory' then
-        return "📁 "
-      else
-        return ascii_icons[ext] or "📄 "
-      end
-    end,
-  }
-})
-require("fzf-lua").setup({ defaults = { file_icons = false } })
+require('lualine-cfg')
+require("mini-family")
+--require("fzf-lua").setup({ defaults = { file_icons = false } })
 require("nvim-autopairs").setup({ map_cr = true })
 
 -- Second Priority
-require'nvim-treesitter.configs'.setup {
-  ensure_installed = { "go", "lua", "vim", "vimdoc", "javascript", "scss", "css", "php" },
-  auto_install = true,
-  highlight = {
-    enable = true,
-    --additional_vim_regex_highlighting = false,
-  },
-  indent = {
-    enable = true, -- Keep indent enabled for other languages
-    --disable = { "php" },
-  },
-}
+--require'nvim-treesitter.configs'.setup {
+--  ensure_installed = { "go", "lua", "vim", "vimdoc", "javascript", "scss", "css", "php" },
+--  auto_install = true,
+--  highlight = {
+--    enable = true,
+--    --additional_vim_regex_highlighting = false,
+--  },
+--  indent = {
+--    enable = true, -- Keep indent enabled for other languages
+--    --disable = { "php" },
+--  },
+--}
 
 require("mason").setup({
   PATH = "prepend", -- This ensures mise tools are found first
