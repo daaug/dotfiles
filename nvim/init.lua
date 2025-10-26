@@ -8,11 +8,20 @@ vim.o.wrap = false
 vim.o.cursorline = true
 vim.o.updatetime = 250
 vim.o.termguicolors = true
-vim.o.expandtab = true
+
+-- false == Use real tabs instead of spaces
+vim.o.expandtab = false
+-- A tab will display as N spaces wide when viewing files
 vim.o.tabstop = 4
+-- Controls how many spaces (or columns) to indent when using >> or auto-indent
 vim.o.shiftwidth = 4
-vim.o.softtabstop = 4
+-- Defines how many spaces <Tab> and <Backspace> count for during editing
+vim.o.softtabstop = 4 -- With this, pressing <Tab> feels like inserting 4 spaces even though it’s a tab character (since expandtab = false).
+-- Automatically copies the indentation of the current line
 vim.o.autoindent = true
+-- Adds an extra indent after certain keywords like {, (, or if, based on simple syntax rules (mostly for C-like languages).
+vim.o.smartindent = true
+
 vim.opt.termguicolors = true
 vim.cmd([[filetype on]])
 
@@ -23,7 +32,7 @@ vim.env.PATH = mise_path .. ":" .. vim.env.PATH
 --print("Full PATH: " .. vim.env.PATH)
 
 -- Theme
-vim.cmd([[colorscheme chromono]])
+vim.cmd([[colorscheme vampire]])
 --vim.cmd([[colorscheme notcobalt]])
 --vim.cmd([[colorscheme hyper]])
 
@@ -211,6 +220,11 @@ require'nvim-treesitter.configs'.setup {
   auto_install = true,
   highlight = {
     enable = true,
+    --additional_vim_regex_highlighting = false,
+  },
+  indent = {
+    enable = true, -- Keep indent enabled for other languages
+    --disable = { "php" },
   },
 }
 
