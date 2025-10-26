@@ -5,6 +5,7 @@
 -- stylua: ignore
 local colors = {
   actual_red = '#ff0000',
+  actual_white = '#ffffff',
   black  = '#000000',
   blue   = '#005aff',
   cyan   = '#79dac8',
@@ -23,7 +24,7 @@ local infrared = {
   normal = {
     a = { fg = currAccent, bg = colors.black, gui = 'bold' },
     b = { fg = colors.black, bg = colors.white },
-    c = { fg = colors.black, bg = currAccent },
+    c = { fg = colors.actual_white, bg = currAccent },
   },
 
   insert = { a = { fg = colors.black, bg = colors.actual_red, gui = 'bold' } },
@@ -39,7 +40,7 @@ local infrared = {
 
 require('lualine').setup {
   options = {
-    --theme = infrared,
+    theme = infrared,
     component_separators = '┃',
     section_separators = { left = '' },
   },

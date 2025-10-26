@@ -151,6 +151,10 @@ vim.lsp.config("html", {
   capabilities = capabilities,
   filetypes = {"html"},
 })
+vim.lsp.config("intelephense", {
+  capabilities = capabilities,
+  filetypes = {"php"},
+})
 
 -- Enhanced JSX completion
 local function setup_jsx_completion()
