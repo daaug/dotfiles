@@ -13,7 +13,6 @@ highlight clear
 
 if exists("syntax_on")
   syntax reset
-
 endif
 
 let g:colors_name = "hyper"
@@ -119,19 +118,19 @@ hi yamlDocumentHeader ctermfg=178 ctermbg=NONE cterm=NONE guifg=#ffff00 guibg=NO
 hi yamlKey ctermfg=96 ctermbg=NONE cterm=NONE guifg=#ff0000 guibg=NONE gui=NONE
 
 " Elixir {{{
-hi elixirAtom ctermfg=37 ctermbg=NONE cterm=NONE guifg=#33ff00 guibg=NONE gui=italic"
-hi elixirModuleDeclaration ctermfg=37 ctermbg=NONE cterm=NONE guifg=#33ff00 guibg=NONE gui=italic"
 hi elixirAlias ctermfg=37 ctermbg=NONE cterm=NONE guifg=#33ff00 guibg=NONE gui=italic"
+hi elixirAtom ctermfg=37 ctermbg=NONE cterm=NONE guifg=#33ff00 guibg=NONE gui=italic"
 hi elixirInterpolationDelimiter ctermfg=70 ctermbg=NONE cterm=NONE guifg=#0066ff guibg=NONE gui=NONE
+hi elixirModuleDeclaration ctermfg=37 ctermbg=NONE cterm=NONE guifg=#33ff00 guibg=NONE gui=italic"
 hi elixirStringDelimiter ctermfg=178 ctermbg=NONE cterm=NONE guifg=#ffff00 guibg=NONE gui=NONE
 "}}}
 "
 " Vim Script {{{
-hi vimGroupName ctermfg=37 ctermbg=NONE cterm=NONE guifg=#33ff00 guibg=NONE
 hi vimGroup ctermfg=37 ctermbg=NONE cterm=NONE guifg=#33ff00 guibg=NONE
-hi vimOption ctermfg=37 ctermbg=15 cterm=NONE guifg=#33ff00 guibg=NONE
+hi vimGroupName ctermfg=37 ctermbg=NONE cterm=NONE guifg=#33ff00 guibg=NONE
 hi vimHiCtermFgBg ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE
 hi vimHiGuiFgBg ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE guibg=NONE
+hi vimOption ctermfg=37 ctermbg=15 cterm=NONE guifg=#33ff00 guibg=NONE
 " }}}
 
 

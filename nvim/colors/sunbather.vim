@@ -46,7 +46,7 @@ let s:light_orange    = { "gui": "#f9a602", "cterm": "172" }
 let s:orange          = { "gui": "#ff8700", "cterm": "208" }
 let s:subtle_black    = { "gui": "#121212", "cterm": "233" }
 let s:white           = { "gui": "#F1F1F1", "cterm": "15"  }
-let s:yellow          = { "gui": "#F3E430", "cterm": "11"  }
+let s:yellow          = { "gui": "#FFFF00", "cterm": "11"  }
 
 let s:background = &background
 
@@ -76,7 +76,7 @@ let s:background = &background
 "  let s:yellow          = s:dark_yellow
 "endif
 
-let s:currAccent = s:orange
+let s:currAccent = s:yellow
 
 " https://github.com/noahfrederick/vim-hemisu/
 function! s:h(group, style)

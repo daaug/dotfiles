@@ -38,7 +38,7 @@ hi NonText guifg=#00afaf guibg=NONE gui=NONE cterm=NONE
 hi SpecialKey guifg=#00afaf guibg=NONE gui=NONE cterm=NONE
 hi Folded guifg=#00afaf guibg=#303030 gui=NONE cterm=NONE
 hi Visual guifg=#dadada guibg=#6c6c6c gui=NONE cterm=NONE
-hi CursorLine guifg=NONE guibg=#6c6c6c gui=NONE cterm=NONE
+hi CursorLine guifg=NONE guibg=NONE gui=NONE cterm=NONE
 hi CursorColumn guifg=NONE guibg=#6c6c6c gui=NONE cterm=NONE
 hi CursorLineNr guifg=#ffff00 guibg=NONE gui=bold cterm=bold
 hi ColorColumn guifg=NONE guibg=#444444 gui=NONE cterm=NONE

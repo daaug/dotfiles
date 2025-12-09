@@ -50,21 +50,22 @@ let s:warning2=s:yellow
 let s:warning=s:red
 
 exe 'hi ColorColumn guibg='s:black0
-exe 'hi Cursor guifg='s:black0 ' guibg='s:white0
+exe 'hi Cursor guifg='s:red ' guibg='s:white0
+exe 'hi! link TermCursor MatchParen'
 exe 'hi CursorColumn guibg='s:black1
-exe 'hi CursorLine guifg=none guibg='s:gray0
+exe 'hi CursorLine guifg=none guibg='s:black1
 exe 'hi CursorLineNr guifg='s:black0 ' guibg='s:red
 exe 'hi Directory guifg='s:const
 exe 'hi FoldColumn guifg='s:comment ' guibg='s:black1
 exe 'hi Folded guifg='s:gray7 ' guibg='s:black0
 exe 'hi IncSearch guifg='s:red ' guibg='s:white0
 exe 'hi LineNr guifg='s:gray9 ' guibg='s:black0
-exe 'hi MatchParen guifg='s:red ' guibg='s:white0 ' gui=bold'
+exe 'hi MatchParen guifg='s:yellow ' guibg=none'
 exe 'hi Normal guifg='s:gray10 ' guibg='s:black0
 exe 'hi Pmenu guifg='s:white0 ' guibg='s:black0
-exe 'hi PmenuSel guifg='s:white0 ' guibg='s:gray0 'gui=bold'
+exe 'hi PmenuSel guifg='s:white0 ' guibg='s:gray0 'gui=none'
 " Other elements found on search
-exe 'hi Search guifg='s:black0 ' guibg='s:white0 ' gui=bold'
+exe 'hi Search guifg='s:white0 ' guibg='s:gray3 ' gui=bold'
 exe 'hi SignColumn guifg='s:comment ' guibg='s:black0
 exe 'hi StatusLine guifg='s:gray9 ' guibg='s:gray0 ' gui=bold'
 exe 'hi VertSplit guifg='s:gray8 ' guibg='s:gray0
@@ -83,7 +84,7 @@ exe 'hi DiffDelete guibg='s:black1
 exe 'hi DiffText guifg=#ffffff guibg=#ff0000 gui=bold'
 exe 'hi ErrorMsg guifg='s:warning ' guibg='s:black1 ' gui=bold'
 exe 'hi Float guifg='s:const
-exe 'hi Function guifg='s:func ' gui=bold'
+exe 'hi Function guifg='s:func ' gui=none'
 exe 'hi Identifier guifg='s:type ' gui=NONE'
 exe 'hi Keyword guifg='s:keyword ' gui=bold'
 exe 'hi Label guifg='s:var
@@ -102,7 +103,7 @@ exe 'hi Todo guibg='s:black0
 exe 'hi Todo guifg='s:gray9 ' gui=inverse,bold'
 exe 'hi Type guifg='s:type
 exe 'hi Underlined  gui=underline'
-exe 'hi WarningMsg guifg='s:gray10 ' guibg='s:warning2
+exe 'hi WarningMsg guifg='s:black0 ' guibg='s:warning2
 
 " Neovim Terminal Mode
 let g:terminal_color_0 = s:black0

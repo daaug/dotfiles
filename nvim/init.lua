@@ -67,11 +67,6 @@ require("paq")({
   "tpope/vim-surround";
   "L3MON4D3/LuaSnip";
 
-  -- File Management
-  --"nvim-tree/nvim-tree.lua";
-  --"junegunn/fzf"; -- fzf-lua mandatory dependency
-  --"ibhagwan/fzf-lua";
-
   -- nvim-mini
   "nvim-mini/mini.nvim";
   "nvim-mini/mini.icons"; -- fzf-lua|mini.nvim optional dependency
@@ -93,18 +88,18 @@ require("mini-family")
 require("nvim-autopairs").setup({ map_cr = true })
 
 -- Second Priority
---require'nvim-treesitter.configs'.setup {
---  ensure_installed = { "go", "lua", "vim", "vimdoc", "javascript", "scss", "css", "php" },
---  auto_install = true,
---  highlight = {
---    enable = true,
---    --additional_vim_regex_highlighting = false,
---  },
---  indent = {
---    enable = true, -- Keep indent enabled for other languages
---    --disable = { "php" },
---  },
---}
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = { "go", "lua", "vim", "vimdoc", "javascript", "scss", "css", "php" },
+  auto_install = false,
+  highlight = {
+    enable = true,
+    --additional_vim_regex_highlighting = false,
+  },
+  indent = {
+    enable = true, -- Keep indent enabled for other languages
+    --disable = { "php" },
+  },
+}
 
 require("mason").setup({
   PATH = "prepend", -- This ensures mise tools are found first

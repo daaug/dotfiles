@@ -9,6 +9,9 @@ vim.api.nvim_set_keymap("n", "<F9>", ":source ./Session.vim<CR>", {noremap = tru
 vim.api.nvim_set_keymap("n", "<C-h>", ":%s:::g<left><left><left>", {noremap = true})
 vim.api.nvim_set_keymap("n", "j", "gj", {noremap = true})
 vim.api.nvim_set_keymap("n", "k", "gk", {noremap = true})
+vim.api.nvim_set_keymap('x', 'u', '<Nop>', { silent = true })
+vim.api.nvim_set_keymap('x', 'U', '<Nop>', { silent = true })
+
 
 -- Buffer
 --vim.api.nvim_set_keymap("n", "<leader>l", ":Buffers<CR>", {noremap = true})
