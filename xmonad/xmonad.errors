@@ -1,0 +1,4 @@
+$ ghc --make xmonad.hs -i -ilib -fforce-recomp -main-is main -v0 -outputdir /home/daniel/.xmonad/build-x86_64-linux -o /home/daniel/.xmonad/xmonad-x86_64-linux
+
+xmonad.hs:1:1: error:
+    The IO action ‘main’ is not defined in module ‘Main’
