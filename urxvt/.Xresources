@@ -1,4 +1,6 @@
-! Always call xrdb -merge .Xresources
+!!! URXVT !!!
+! Always call:
+! xrdb -merge .Xresources
 
 ! Restore Ctrl+Shift+(c|v)
 URxvt.keysym.Shift-Control-V: eval:paste_clipboard
@@ -12,10 +14,10 @@ URxvt.iso14755: false
 URxvt.iso14755_52: false
 
 ! FONT
-!URxvt.font: xft:Monospace:pixelsize=21
-!URxvt.boldfont: xft:Monospace-Bold:pixelsize=21
-URxvt.font: xft:Courier Prime:pixelsize=21
-URxvt.boldfont: xft:Courier Prime Bold:pixelsize=21
+URxvt.font: xft:Monospace:pixelsize=14
+URxvt.boldfont: xft:Monospace-Bold:pixelsize=14
+!URxvt.font: xft:Courier Prime:pixelsize=14
+!URxvt.boldfont: xft:Courier Prime Bold:pixelsize=14
 
 ! THEME
 ! Remember
@@ -29,39 +31,42 @@ URxvt.boldfont: xft:Courier Prime Bold:pixelsize=21
 !5 Magenta   13 Magenta
 !6 Cyan      14 Cyan
 !7 White     15 White
-!! special
-*.foreground:   #cbe3e7
-*.background:   #1b182c
-*.cursorColor:  #fbfcfc
+
+! special
+*.foreground:   #ababab
+*.background:   #000000
+*.cursorColor:  #ababab
 
 ! black
-*.color0:       #100e23
-*.color8:       #565575
+*.color0:       #000000
+*.color8:       #343434
 
 ! red
-*.color1:       #ff8080
-*.color9:       #ff5458
+*.color1:       #ff0000
+*.color9:       #e92f2f
 
 ! green
-*.color2:       #95ffa4
-*.color10:      #62d196
+*.color2:       #0ed839
+*.color10:      #0ed839
 
 ! yellow
-*.color3:       #ffe9aa
-*.color11:      #ffb378
+*.color3:       #dddd13
+*.color11:      #dddd13
 
 ! blue
-*.color4:       #91ddff
-*.color12:      #65b2ff
+*.color4:       #3b48e3
+*.color12:      #3b48e3
 
 ! magenta
-*.color5:       #c991e1
-*.color13:      #906cff
+*.color5:       #f996e2
+*.color13:      #f996e2
 
 ! cyan
-*.color6:       #aaffe4
-*.color14:      #63f2f1
+*.color6:       #23edda
+*.color14:      #23edda
 
 ! white
-*.color7:       #cbe3e7
-*.color15:      #a6b3cc
+*.color7:       #ababab
+*.color15:      #f9f9f9
+
+!!! URXVT END !!!
