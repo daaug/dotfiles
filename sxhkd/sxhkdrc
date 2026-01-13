@@ -4,11 +4,11 @@
 
 # terminal emulator
 super + Return
-  x-terminal-emulator
+  urxvt 
 
 # alternative terminal emulator
 super + shift + Return
-  urxvt
+  x-terminal-emulator
 
 # program launcher
 super + d
@@ -139,9 +139,9 @@ XF86AudioMute
     amixer set Master toggle
 #Brightness Control
 XF86MonBrightnessUp
-    brightnessctl set +10%  # Increase brightness by 10%
+    brightnessctl set +10%
 XF86MonBrightnessDown
-    brightnessctl set 10%-  # Decrease brightness by 10%
+    brightnessctl set 10%-
 
 #
 # Misc
