@@ -1,3 +1,4 @@
+require("daaug-colors")
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.o.mouse = ""
@@ -8,6 +9,7 @@ vim.o.wrap = false
 vim.o.cursorline = true
 vim.o.updatetime = 250
 vim.o.termguicolors = true
+
 
 -- false == Use real tabs instead of spaces
 vim.o.expandtab = false
@@ -33,8 +35,6 @@ vim.env.PATH = mise_path .. ":" .. vim.env.PATH
 
 -- Theme
 vim.cmd([[colorscheme vampire]])
---vim.cmd([[colorscheme notcobalt]])
---vim.cmd([[colorscheme hyper]])
 
 -- Download paq
 paq_path = "~/.local/share/nvim/site/pack/paqs"
@@ -84,6 +84,10 @@ require("keymaps")
 require("plenary")
 require('lualine-cfg')
 require("mini-family")
+vim.api.nvim_set_hl(0, "MiniFilesBorder", {
+    fg = vim.g.daaug_colors.crt_green,
+})
+
 --require("fzf-lua").setup({ defaults = { file_icons = false } })
 require("nvim-autopairs").setup({ map_cr = true })
 

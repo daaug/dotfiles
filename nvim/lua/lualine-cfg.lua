@@ -18,7 +18,7 @@ local colors = {
   white  = '#c6c6c6',
 }
 
-local currAccent = colors.actual_red;
+local currAccent = vim.g.daaug_colors.crt_green;
 
 local infrared = {
   normal = {

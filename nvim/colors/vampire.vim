@@ -10,6 +10,7 @@ endif
 
 set t_Co=256
 let g:colors_name = "black"
+let s:main_color = g:daaug_colors.crt_green
 
 let s:black0="#000000"
 let s:black1="#1a1a1a"
@@ -37,28 +38,28 @@ let s:yellow1="#ba8e23"
 let s:purple="#ff00ff"
 let s:cyan="#ff00ff"
 
-let s:builtin=s:red
+let s:builtin=s:main_color
 let s:comment=s:gray5
-let s:const=s:red "affects mini.files dir color
+let s:const=s:main_color "affects mini.files dir color
 let s:func=s:gray4
 let s:keyword=s:gray5 "async, function, import
-let s:str=s:yellow1
-let s:type=s:red "class name, return types, json keys
-let s:values=s:red
-let s:var=s:red
+let s:str=g:daaug_colors.crt_amber
+let s:type=s:main_color "class name, return types, json keys
+let s:values=s:main_color
+let s:var=s:main_color
 let s:warning2=s:yellow
-let s:warning=s:red
+let s:warning=s:main_color
 
 exe 'hi ColorColumn guibg='s:black0
-exe 'hi Cursor guifg='s:red ' guibg='s:white0
+exe 'hi Cursor guifg='s:main_color ' guibg='s:white0
 exe 'hi! link TermCursor MatchParen'
 exe 'hi CursorColumn guibg='s:black1
 exe 'hi CursorLine guifg=none guibg='s:black1
-exe 'hi CursorLineNr guifg='s:black0 ' guibg='s:red
+exe 'hi CursorLineNr guifg='s:black0 ' guibg='s:main_color
 exe 'hi Directory guifg='s:const
 exe 'hi FoldColumn guifg='s:comment ' guibg='s:black1
 exe 'hi Folded guifg='s:gray7 ' guibg='s:black0
-exe 'hi IncSearch guifg='s:red ' guibg='s:white0
+exe 'hi IncSearch guifg='s:main_color ' guibg='s:white0
 exe 'hi LineNr guifg='s:gray9 ' guibg='s:black0
 exe 'hi MatchParen guifg='s:yellow ' guibg=none'
 exe 'hi Normal guifg='s:gray10 ' guibg='s:black0
@@ -69,7 +70,7 @@ exe 'hi Search guifg='s:white0 ' guibg='s:gray3 ' gui=bold'
 exe 'hi SignColumn guifg='s:comment ' guibg='s:black0
 exe 'hi StatusLine guifg='s:gray9 ' guibg='s:gray0 ' gui=bold'
 exe 'hi VertSplit guifg='s:gray8 ' guibg='s:gray0
-exe 'hi Visual guifg='s:black0 'guibg='s:red
+exe 'hi Visual guifg='s:black0 'guibg='s:main_color
 exe 'hi WildMenu guifg='s:str ' guibg='s:black0
 
 exe 'hi Boolean guifg='s:values
