@@ -11,3 +11,5 @@ vim.g.daaug_colors = {
 	white =			"#ffffff",
 	yellow =		"#ffff00",
 }
+
+vim.g.daaug_accent = vim.g.daaug_colors.crt_green

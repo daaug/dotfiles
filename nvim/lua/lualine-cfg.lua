@@ -18,13 +18,13 @@ local colors = {
   white  = '#c6c6c6',
 }
 
-local currAccent = vim.g.daaug_colors.crt_green;
+local currAccent = vim.g.daaug_accent;
 
-local infrared = {
+local main = {
   normal = {
     a = { fg = currAccent, bg = colors.black, gui = 'bold' },
     b = { fg = colors.black, bg = colors.white },
-    c = { fg = colors.actual_white, bg = currAccent },
+    c = { fg = colors.black, bg = currAccent, gui = 'bold' },
   },
 
   insert = { a = { fg = colors.black, bg = colors.actual_red, gui = 'bold' } },
@@ -40,7 +40,7 @@ local infrared = {
 
 require('lualine').setup {
   options = {
-    theme = infrared,
+    theme = main,
     component_separators = '┃',
     section_separators = { left = '' },
   },
