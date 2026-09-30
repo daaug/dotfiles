@@ -14,8 +14,11 @@ URxvt.iso14755: false
 URxvt.iso14755_52: false
 
 ! FONT
-URxvt.font: xft:Monospace:pixelsize=14
-URxvt.boldfont: xft:Monospace-Bold:pixelsize=14
+URxvt.font: 8x13
+!URxvt.font: *-fixed-*-*-*-14-*
+!URxvt.boldfont: *-fixed-*-*-*-14-*
+!URxvt.font: xft:Monospace:pixelsize=12
+!URxvt.boldfont: xft:Monospace-Bold:pixelsize=12
 !URxvt.font: xft:Courier Prime:pixelsize=14
 !URxvt.boldfont: xft:Courier Prime Bold:pixelsize=14
 
@@ -70,3 +73,9 @@ URxvt.boldfont: xft:Monospace-Bold:pixelsize=14
 *.color15:      #f9f9f9
 
 !!! URXVT END !!!
+
+!!! XTERM !!!
+UXTerm*VT100.Translations: #override \n\
+    Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
+    Ctrl Shift <Key>V: insert-selection(CLIPBOARD)
+!!! XTERM END !!!

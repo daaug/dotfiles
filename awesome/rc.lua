@@ -1,3 +1,4 @@
+-- AWESOME v4.3
 -- If LuaRocks is installed, make sure that packages installed through it are
 -- found (e.g. lgi). If LuaRocks is not installed, do nothing.
 pcall(require, "luarocks.loader")
@@ -49,10 +50,11 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+-- beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+beautiful.init("/home/daniel/.config/awesome/themes/default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = os.getenv("TERM") or "x-terminal-emulator"
+terminal = "urxvt" or "x-terminal-emulator" or os.getenv("TERM")
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -315,6 +317,9 @@ globalkeys = gears.table.join(
               {description = "select next", group = "layout"}),
     -- awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
     --           {description = "select previous", group = "layout"}),
+	-- Custom commands
+	awful.key({ modkey,           }, "x", function () awful.spawn("screengrab -r") end,
+			  {description = "open screengrab with select area", group = "launcher"}),
 
     awful.key({ modkey, "Control" }, "n",
               function ()
@@ -332,7 +337,7 @@ globalkeys = gears.table.join(
     awful.key({ modkey },            "r",     function () awful.screen.focused().mypromptbox:run() end,
               {description = "run prompt", group = "launcher"}),
 
-    awful.key({ modkey }, "x",
+    awful.key({ modkey }, "y",
               function ()
                   awful.prompt.run {
                     prompt       = "Run Lua code: ",
@@ -580,3 +585,4 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
