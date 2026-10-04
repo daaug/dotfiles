@@ -2,6 +2,28 @@
 local cmp = require'cmp'
 local luasnip = require'luasnip'
 
+local function border(hl_name)
+  return {
+    { "┌", hl_name },
+    { "─", hl_name },
+    { "┐", hl_name },
+    { "│", hl_name },
+    { "┘", hl_name },
+    { "─", hl_name },
+    { "└", hl_name },
+    { "│", hl_name },
+  }
+end
+
+-- color documentation border
+vim.api.nvim_set_hl(0, "CmpDocBorder", { fg = vim.g.daaug_accent })
+
+-- color menu autocompletion border
+vim.api.nvim_set_hl(0, "CmpMenuBorder", { fg = vim.g.daaug_accent })
+
+-- background color item selected in menu autocompletion
+vim.api.nvim_set_hl(0, "CmpMenuSel", { fg = "#000000", bg = vim.g.daaug_accent })
+
 cmp.setup({
     snippet = {
         -- REQUIRED - you must specify a snippet engine
@@ -10,8 +32,17 @@ cmp.setup({
         end,
     },
     window = {
-        completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
+        --completion = cmp.config.window.bordered(),
+		completion = {
+			border = border("CmpMenuBorder"),
+			winhighlight = "Normal:CmpMenu,CursorLine:CmpMenuSel,Search:None",
+		},
+        --documentation = cmp.config.window.bordered(),
+		documentation = {
+			border = border("CmpDocBorder"),
+			winhighlight = "Normal:CmpDoc",
+		},
+
     },
     mapping = cmp.mapping.preset.insert({
         ['<C-b>'] = cmp.mapping.scroll_docs(-4),

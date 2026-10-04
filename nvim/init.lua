@@ -1,3 +1,4 @@
+require("daaug-colors")
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.o.mouse = ""
@@ -8,6 +9,7 @@ vim.o.wrap = false
 vim.o.cursorline = true
 vim.o.updatetime = 250
 vim.o.termguicolors = true
+
 
 -- false == Use real tabs instead of spaces
 vim.o.expandtab = false
@@ -25,16 +27,8 @@ vim.o.smartindent = true
 vim.opt.termguicolors = true
 vim.cmd([[filetype on]])
 
-local mise_path = vim.fn.expand("~/.local/share/mise/shims")
-vim.env.PATH = mise_path .. ":" .. vim.env.PATH
--- Verify the PATH is set correctly
---print("Mise PATH: " .. mise_path)
---print("Full PATH: " .. vim.env.PATH)
-
 -- Theme
 vim.cmd([[colorscheme vampire]])
---vim.cmd([[colorscheme notcobalt]])
---vim.cmd([[colorscheme hyper]])
 
 -- Download paq
 paq_path = "~/.local/share/nvim/site/pack/paqs"
@@ -73,6 +67,7 @@ require("paq")({
 
   --Misc
   "nvim-lua/plenary.nvim"; -- lualine, mason, treesitter
+  "tidalcycles/vim-tidal";
 
   -- Time Management
   {"wakatime/vim-wakatime", lazy = false};
@@ -84,6 +79,10 @@ require("keymaps")
 require("plenary")
 require('lualine-cfg')
 require("mini-family")
+vim.api.nvim_set_hl(0, "MiniFilesBorder", {
+    fg = vim.g.daaug_accent,
+})
+
 --require("fzf-lua").setup({ defaults = { file_icons = false } })
 require("nvim-autopairs").setup({ map_cr = true })
 
@@ -102,7 +101,7 @@ require'nvim-treesitter.configs'.setup {
 }
 
 require("mason").setup({
-  PATH = "prepend", -- This ensures mise tools are found first
+  PATH = "prepend",
 })
 
 require("mason-lspconfig").setup({
@@ -119,24 +118,3 @@ require("mason-lspconfig").setup({
 require("lspconfig-cfg")
 require("nvim-cmp-cfg")
 
--- Check if mise tools are available
---local function check_mise_tools()
---  local handle = io.popen("which typescript-language-server")
---  local result = handle:read("*a")
---  handle:close()
---
---  if result and result ~= "" then
---    print("✓ TypeScript language server found: " .. result)
---  else
---    print("✗ TypeScript language server not found")
---  end
---
---  -- Check node version
---  local node_handle = io.popen("node --version")
---  local node_version = node_handle:read("*a")
---  node_handle:close()
---  print("Node version: " .. (node_version or "Not found"))
---end
---
----- Run the check
---check_mise_tools()
