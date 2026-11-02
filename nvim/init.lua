@@ -12,7 +12,7 @@ vim.o.termguicolors = true
 
 
 -- false == Use real tabs instead of spaces
-vim.o.expandtab = false
+vim.o.expandtab = true
 -- A tab will display as N spaces wide when viewing files
 vim.o.tabstop = 4
 -- Controls how many spaces (or columns) to indent when using >> or auto-indent
@@ -28,7 +28,12 @@ vim.opt.termguicolors = true
 vim.cmd([[filetype on]])
 
 -- Theme
-vim.cmd([[colorscheme vampire]])
+-- Good themes:
+-- elflord
+-- torte (change line bg)
+-- ron
+-- wildcharm
+vim.cmd([[colorscheme elflord]])
 
 -- Download paq
 paq_path = "~/.local/share/nvim/site/pack/paqs"

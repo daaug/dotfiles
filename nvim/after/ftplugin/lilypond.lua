@@ -31,9 +31,9 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 	vim.fn.jobstart({"lilypond", "--pdf", "-o", output_dir, file_path}, {
 		on_exit = function (_, exit_code)
 			if exit_code == 0 then
-				vim.api.nvim_echo({{"✓ LilyPond compilation successfull!", "DiagnosticOk"}}, table, {})
+				vim.api.nvim_echo({{"OK - LilyPond compilation successfull!", "DiagnosticOk"}}, table, {})
 			else
-				vim.api.nvim_echo({{"❌ LilyPond compilation failed.", "DiagnosticError"}}, table, {})
+				vim.api.nvim_echo({{"ERR - LilyPond compilation failed.", "DiagnosticError"}}, table, {})
 			end
 		end
 	})
